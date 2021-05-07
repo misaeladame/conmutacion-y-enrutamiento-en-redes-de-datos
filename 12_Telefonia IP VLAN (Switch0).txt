@@ -1,0 +1,33 @@
+Press RETURN to get started!
+
+
+%LINK-5-CHANGED: Interface FastEthernet0/2, changed state to up
+
+%LINK-5-CHANGED: Interface FastEthernet0/3, changed state to up
+
+%LINK-5-CHANGED: Interface FastEthernet0/4, changed state to up
+
+%LINK-5-CHANGED: Interface FastEthernet0/5, changed state to up
+
+Switch>
+Switch>
+Switch>ena
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#
+Switch(config)#vlan 10
+Switch(config-vlan)#name VOZ
+Switch(config-vlan)#exit
+Switch(config)#int range fa 0/2-6
+Switch(config-if-range)#sw
+Switch(config-if-range)#switchport voice vlan 10
+Switch(config-if-range)#int fa 0/1
+Switch(config-if)#sw
+Switch(config-if)#switchport mode trunk
+Switch(config-if)#exit
+Switch(config)#
+Switch(config)#do wr
+Building configuration...
+[OK]
+Switch(config)#
+Switch(config)#

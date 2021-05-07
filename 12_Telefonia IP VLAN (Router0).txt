@@ -1,0 +1,214 @@
+         --- System Configuration Dialog ---
+
+Would you like to enter the initial configuration dialog? [yes/no]: n
+
+
+Press RETURN to get started!
+
+
+
+Router>
+Router>
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#
+Router(config)#hostname TELEFONOS
+TELEFONOS(config)#
+TELEFONOS(config)#
+TELEFONOS(config)#int fa 0/0
+TELEFONOS(config-if)#no sh
+TELEFONOS(config-if)#exit
+TELEFONOS(config)#
+TELEFONOS(config)#ip dhcp pool VOZ
+TELEFONOS(dhcp-config)#net
+TELEFONOS(dhcp-config)#network 192.168.1.0 255.255.255.0
+TELEFONOS(dhcp-config)#def
+TELEFONOS(dhcp-config)#default-router 192.168.1.1
+TELEFONOS(dhcp-config)#optio
+TELEFONOS(dhcp-config)#option 150 ip 192.168.1.1
+TELEFONOS(dhcp-config)#
+TELEFONOS(dhcp-config)#exit
+TELEFONOS(config)#
+TELEFONOS(config)#int fa 0/0.2
+TELEFONOS(config-subif)#enc
+TELEFONOS(config-subif)#encapsulation dot
+TELEFONOS(config-subif)#encapsulation dot1Q 10
+TELEFONOS(config-subif)#ip add 192.168.1.1 255.255.255.0
+TELEFONOS(config-subif)#exit
+TELEFONOS(config)#
+TELEFONOS(config)#tele
+TELEFONOS(config)#telephony-service 
+TELEFONOS(config-telephony)#max-dn 4
+TELEFONOS(config-telephony)#
+TELEFONOS(config-telephony)#max-ephone 4
+TELEFONOS(config-telephony)#i source-add
+TELEFONOS(config-telephony)#i source-address  192.168.1.1 port 2000
+TELEFONOS(config-telephony)#auto
+TELEFONOS(config-telephony)#auto assign 1 to 4
+TELEFONOS(config-telephony)#ephone-dn 1
+TELEFONOS(config-ephone-dn)#number 241
+TELEFONOS(config-ephone-dn)#ephone-dn 2
+TELEFONOS(config-ephone-dn)#number 242
+TELEFONOS(config-ephone-dn)#ephone-dn 3
+TELEFONOS(config-ephone-dn)#number 243
+TELEFONOS(config-ephone-dn)#ephone-dn 4
+TELEFONOS(config-ephone-dn)#number 244
+TELEFONOS(config-ephone-dn)#exit
+TELEFONOS(config)#do wr
+Building configuration...
+[OK]
+TELEFONOS(config)#
+TELEFONOS(config)#
+
+
+---------------------------------------------------
+
+-- Después de conectar los teléfonos
+
+---------------------------------------------------
+
+
+
+TELEFONOS(config)#
+TELEFONOS(config)#exit
+TELEFONOS#
+%SYS-5-CONFIG_I: Configured from console by console
+
+TELEFONOS#
+TELEFONOS#sh run
+Building configuration...
+
+Current configuration : 1311 bytes
+!
+version 12.4
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname TELEFONOS
+!
+!
+!
+!
+!
+ip dhcp pool VOZ
+ network 192.168.1.0 255.255.255.0
+ default-router 192.168.1.1
+ option 150 ip 192.168.1.1
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ no ip address
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/0.2
+ encapsulation dot1Q 10
+ ip address 192.168.1.1 255.255.255.0
+!
+interface FastEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+!
+telephony-service
+ max-ephones 4
+ max-dn 4
+ ip source-address 192.168.1.1 port 2000
+ auto assign 1 to 4
+!
+ephone-dn 1
+ number 241
+!
+ephone-dn 2
+ number 242
+!
+ephone-dn 3
+ number 243
+!
+ephone-dn 4
+ number 244
+!
+ephone 1
+ device-security-mode none
+ mac-address 0030.A3D3.D65E
+ type 7960
+ button 1:1
+!
+ephone 2
+ device-security-mode none
+ mac-address 0050.0FD1.B6C8
+ type 7960
+ button 1:2
+!
+ephone 3
+ device-security-mode none
+ mac-address 0001.96D7.A2DB
+ type 7960
+ button 1:3
+!
+ephone 4
+ device-security-mode none
+ mac-address 0009.7C49.8E1B
+ type 7960
+ button 1:4
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+
+
+TELEFONOS# 
+TELEFONOS#
+TELEFONOS#
+
+
+
+
