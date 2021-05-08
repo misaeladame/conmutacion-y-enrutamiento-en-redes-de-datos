@@ -1,0 +1,47 @@
+Press RETURN to get started!
+
+
+%LINK-5-CHANGED: Interface FastEthernet0/2, changed state to up
+
+%LINK-5-CHANGED: Interface FastEthernet0/3, changed state to up
+
+%LINK-5-CHANGED: Interface FastEthernet0/4, changed state to up
+
+
+Switch>
+Switch>
+Switch>
+Switch>ena
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#vlan 20
+Switch(config-vlan)#name DATOS
+Switch(config-vlan)#vlan 30
+Switch(config-vlan)#name voz
+Switch(config-vlan)#exit
+Switch(config)#
+Switch(config)#
+Switch(config)#int range fa 0/2-4
+Switch(config-if-range)#sw
+Switch(config-if-range)#switchport mode access
+Switch(config-if-range)#sw
+Switch(config-if-range)#switchport acc
+Switch(config-if-range)#switchport access vlan 20
+Switch(config-if-range)#sw
+Switch(config-if-range)#switchport voice vlan 30
+Switch(config-if-range)#exit
+Switch(config)#int fa 0/1
+Switch(config-if)#sw
+Switch(config-if)#switchport mode trunk
+Switch(config-if)#end
+Switch#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Switch#
+Switch#wr
+Building configuration...
+[OK]
+Switch#
