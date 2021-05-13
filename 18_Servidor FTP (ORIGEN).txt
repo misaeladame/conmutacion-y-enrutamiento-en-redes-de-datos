@@ -1,0 +1,200 @@
+         --- System Configuration Dialog ---
+
+Would you like to enter the initial configuration dialog? [yes/no]: n
+
+
+Press RETURN to get started!
+
+
+
+Router>
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#
+Router(config)#hostname DHCP
+DHCP(config)#
+DHCP(config)#int fa 0/0
+DHCP(config-if)#ip add 192.168.5.1 255.255.255.0
+DHCP(config-if)#no sh
+
+DHCP(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+DHCP(config-if)#
+DHCP(config-if)#exit
+DHCP(config)#int fa 0/1
+DHCP(config-if)#ip add 192.168.6.1 255.255.255.0
+DHCP(config-if)#no sh
+
+DHCP(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/1, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+
+DHCP(config-if)#exit
+DHCP(config)#
+DHCP(config)#
+DHCP(config)#ip dhcp ex
+DHCP(config)#ip dhcp excluded-address 192.168.5.1 192.168.5.10
+DHCP(config)#ip dhcp excluded-address 192.168.6.1 192.168.6.10
+DHCP(config)#ip dhcp excluded-address 192.168.5.254
+DHCP(config)#ip dhcp excluded-address 192.168.6.254
+DHCP(config)#
+DHCP(config)#ip dhcp pool LAN5
+DHCP(dhcp-config)#net
+DHCP(dhcp-config)#network 192.168.5.0 255.255.255.0
+DHCP(dhcp-config)#def
+DHCP(dhcp-config)#default-router 192.168.5.1
+DHCP(dhcp-config)#dns-server 8.8.8.8
+DHCP(dhcp-config)#exit
+DHCP(config)#ip dhcp pool LAN6
+DHCP(dhcp-config)#network 192.168.6.0 255.255.255.0
+DHCP(dhcp-config)#default-router 192.168.6.1
+DHCP(dhcp-config)#dns-server 8.8.4.4
+DHCP(dhcp-config)#exit
+DHCP(config)#do wr
+Building configuration...
+[OK]
+DHCP(config)#
+DHCP(config)#
+
+
+--------------------------------------------------------
+-- Aquí empieza lo de la 17_Servidor TFTP
+--------------------------------------------------------
+
+
+DHCP>
+DHCP>
+DHCP>ena
+DHCP#sh run
+Building configuration...
+
+Current configuration : 957 bytes
+!
+version 12.4
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname DHCP
+!
+!
+!
+!
+ip dhcp excluded-address 192.168.5.1 192.168.5.10
+ip dhcp excluded-address 192.168.6.1 192.168.6.10
+ip dhcp excluded-address 192.168.5.254
+ip dhcp excluded-address 192.168.6.254
+!
+ip dhcp pool LAN5
+ network 192.168.5.0 255.255.255.0
+ default-router 192.168.5.1
+ dns-server 8.8.8.8
+ip dhcp pool LAN6
+ network 192.168.6.0 255.255.255.0
+ default-router 192.168.6.1
+ dns-server 8.8.4.4
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ ip address 192.168.5.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/1
+ ip address 192.168.6.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+
+
+DHCP#
+DHCP#
+DHCP#copy running-config tftp
+Address or name of remote host []? 192.168.5.5
+Destination filename [DHCP-confg]? R1
+
+Writing running-config....!!
+[OK - 957 bytes]
+
+957 bytes copied in 3.074 secs (311 bytes/sec)
+DHCP#
+
+
+--------------------------------------------------------
+-- Aquí empieza lo de la 18_Servidor FTP
+--------------------------------------------------------
+
+
+DHCP>
+DHCP>
+DHCP>ena
+DHCP#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+DHCP(config)#ip ftp username ras1
+DHCP(config)#ip ftp password ras1
+DHCP(config)#exit
+DHCP#
+%SYS-5-CONFIG_I: Configured from console by console
+
+DHCP#copy running-config ftp
+Address or name of remote host []? 192.168.5.5
+Destination filename [DHCP-confg]? R11
+
+Writing running-config...
+[OK - 999 bytes]
+
+999 bytes copied in 0.126 secs (7000 bytes/sec)
+DHCP#
