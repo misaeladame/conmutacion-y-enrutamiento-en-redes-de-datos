@@ -1,0 +1,109 @@
+
+Packet Tracer PC Command Line 1.0
+C:\>ping 192.168.0.1
+
+Pinging 192.168.0.1 with 32 bytes of data:
+
+Reply from 192.168.0.1: bytes=32 time=54ms TTL=255
+Reply from 192.168.0.1: bytes=32 time<1ms TTL=255
+Reply from 192.168.0.1: bytes=32 time<1ms TTL=255
+Reply from 192.168.0.1: bytes=32 time<1ms TTL=255
+
+Ping statistics for 192.168.0.1:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 54ms, Average = 13ms
+
+C:\>telnet 192.168.0.1
+Trying 192.168.0.1 ...Open
+
+
+User Access Verification
+
+Password: 
+TELNET>ena
+Password:
+TELNET#sh run
+Building configuration...
+
+Current configuration : 652 bytes
+!
+version 12.4
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname TELNET
+!
+!
+!
+enable secret 5 $1$mERr$iOPOgI6OMMElMAwVCV1xd/
+!
+!
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ ip address 192.168.0.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 2
+ password LONCHE
+ login
+line vty 3 4
+ login
+!
+!
+!
+end
+
+
+TELNET#

@@ -1,0 +1,8 @@
+Packet Tracer PC Command Line 1.0
+C:\>ssh -l PEQUE 192.168.0.1
+
+Password: 
+
+
+
+SSH>

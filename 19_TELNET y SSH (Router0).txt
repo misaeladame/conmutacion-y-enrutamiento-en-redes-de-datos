@@ -1,0 +1,40 @@
+         --- System Configuration Dialog ---
+
+Would you like to enter the initial configuration dialog? [yes/no]: n
+
+
+Press RETURN to get started!
+
+
+
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int fa 0/0
+Router(config-if)#ip add 192.168.0.1 255.255.255.0
+Router(config-if)#no sh
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+Router(config-if)#
+Router(config-if)#
+Router(config-if)#exit
+Router(config)#
+Router(config)#line vty ?
+  <0-15>  First Line number
+Router(config)#line vty 0 2
+Router(config-line)#password LONCHE
+Router(config-line)#login 
+Router(config-line)#exit
+Router(config)#enable secret MIXTO
+Router(config)#do wr
+Building configuration...
+[OK]
+Router(config)#
+Router(config)#
+Router(config)#host TELNET
+TELNET(config)#
+TELNET(config)#
