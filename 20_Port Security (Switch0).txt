@@ -1,0 +1,253 @@
+Press RETURN to get started!
+
+
+
+Switch>
+Switch>ena
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#exit
+Switch#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Switch#show mac a
+Switch#show mac address-table 
+          Mac Address Table
+-------------------------------------------
+
+Vlan    Mac Address       Type        Ports
+----    -----------       --------    -----
+
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#
+Switch(config)#
+Switch(config)#inter
+Switch(config)#interface f
+Switch(config)#interface fastEthernet 0/1
+Switch(config-if)#switchport mode access
+Switch(config-if)#sw
+Switch(config-if)#switchport port
+Switch(config-if)#switchport port-security
+Switch(config-if)#exit
+Switch(config)#exit
+Switch#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Switch#show por
+Switch#show port-security inter
+Switch#show port-security interface fa 0/1
+Port Security              : Enabled
+Port Status                : Secure-down
+Violation Mode             : Shutdown
+Aging Time                 : 0 mins
+Aging Type                 : Absolute
+SecureStatic Address Aging : Disabled
+Maximum MAC Addresses      : 1
+Total MAC Addresses        : 0
+Configured MAC Addresses   : 0
+Sticky MAC Addresses       : 0
+Last Source Address:Vlan   : 0000.0000.0000:0
+Security Violation Count   : 0
+
+Switch#ena
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#
+Switch(config)#
+Switch(config)#inter
+Switch(config)#interface fa 0/1
+Switch(config-if)#sw
+Switch(config-if)#switchport por
+Switch(config-if)#switchport port-security max
+Switch(config-if)#switchport port-security maximum ?
+  <1-132>  Maximum addresses
+Switch(config-if)#switchport port-security maximum 2
+Switch(config-if)#
+Switch(config-if)#
+Switch(config-if)#swi
+Switch(config-if)#switchport por
+Switch(config-if)#switchport port-security vio
+Switch(config-if)#switchport port-security violation ?
+  protect   Security violation protect mode
+  restrict  Security violation restrict mode
+  shutdown  Security violation shutdown mode
+Switch(config-if)#switchport port-security violation restrict
+Switch(config-if)#
+Switch(config-if)#exit
+Switch(config)#exit
+Switch#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Switch#
+Switch#show mac add
+Switch#show mac address-table inter
+Switch#show mac address-table interfaces fas
+Switch#show mac address-table interfaces fastEthernet 0/1
+          Mac Address Table
+-------------------------------------------
+
+Vlan    Mac Address       Type        Ports
+----    -----------       --------    -----
+
+Switch#ena
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#int
+Switch(config)#interface fa
+Switch(config)#interface fastEthernet 0/1
+Switch(config-if)#sw
+Switch(config-if)#switchport por
+Switch(config-if)#switchport port-security ma
+Switch(config-if)#switchport port-security mac-address ?
+  H.H.H   48 bit mac address
+  sticky  Configure dynamic secure addresses as sticky
+Switch(config-if)#switchport port-security mac-address sticky
+Switch(config-if)#
+Switch(config-if)#
+Switch(config-if)#
+Switch(config-if)#sw
+Switch(config-if)#switchport por
+Switch(config-if)#switchport port-security ag
+Switch(config-if)#switchport port-security aging ?
+  time  Port-security aging time
+Switch(config-if)#switchport port-security aging time ?
+  <1-1440>  Aging time in minutes. Enter a value between 1 and 1440
+Switch(config-if)#switchport port-security aging time 10
+Switch(config-if)#
+Switch(config-if)#
+Switch(config-if)#
+Switch(config-if)#
+Switch(config-if)#sho
+Switch(config-if)#exit
+Switch(config)#exit
+Switch#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Switch#
+Switch#
+Switch#show por
+Switch#show port-security add
+Switch#show port-security address
+			Secure Mac Address Table
+-------------------------------------------------------------------------------
+Vlan	Mac Address	Type			Ports		Remaining Age
+								(mins)
+----	-----------	----			-----		-------------
+------------------------------------------------------------------------------
+Total Addresses in System (excluding one mac per port)     : 0
+Max Addresses limit in System (excluding one mac per port) : 1024
+Switch#
+Switch#show por
+Switch#show port-security
+Secure Port MaxSecureAddr CurrentAddr SecurityViolation Security Action
+               (Count)       (Count)        (Count)
+--------------------------------------------------------------------
+        Fa0/1        2          0                 0         Restrict
+----------------------------------------------------------------------
+Switch#sh run
+Building configuration...
+
+Current configuration : 1296 bytes
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname Switch
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security aging time 10
+!
+interface FastEthernet0/2
+!
+interface FastEthernet0/3
+!
+interface FastEthernet0/4
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+!
+!
+!
+line con 0
+!
+line vty 0 4
+ login
+line vty 5 15
+ login
+!
+!
+!
+!
+end
+
+
+Switch#
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#do wr
+Building configuration...
+[OK]
+Switch(config)#
+Switch(config)#exit
+Switch#

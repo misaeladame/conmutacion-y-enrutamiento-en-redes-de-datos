@@ -1,0 +1,265 @@
+Switch>
+Switch>
+Switch>
+Switch>
+Switch>
+Switch>ena
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#int
+Switch(config)#interface fa
+Switch(config)#interface fastEthernet 0/1
+Switch(config-if)#sw
+Switch(config-if)#switchport mode
+Switch(config-if)#switchport mode acc
+Switch(config-if)#switchport mode access
+Switch(config-if)#sw
+Switch(config-if)#switchport por
+Switch(config-if)#switchport port-security 
+Switch(config-if)#sw
+Switch(config-if)#switchport port-security max
+Switch(config-if)#switchport port-security maximum 1
+Switch(config-if)#sw
+Switch(config-if)#switchport port
+Switch(config-if)#switchport port-security v
+Switch(config-if)#switchport port-security violation s
+Switch(config-if)#switchport port-security violation shutdown 
+Switch(config-if)#
+Switch(config-if)#exit
+Switch(config)#
+Switch(config)#int
+Switch(config)#interface f
+Switch(config)#interface fastEthernet 0/3
+Switch(config-if)#sw
+Switch(config-if)#switchport mode access
+Switch(config-if)#sw
+Switch(config-if)#switchport port-security
+Switch(config-if)#sw
+Switch(config-if)#switchport port-security mac
+Switch(config-if)#switchport port-security mac-address ?
+  H.H.H   48 bit mac address
+  sticky  Configure dynamic secure addresses as sticky
+Switch(config-if)#switchport port-security mac-address sticky
+Switch(config-if)#switchport port-security v
+Switch(config-if)#switchport port-security violation pro
+Switch(config-if)#switchport port-security violation protect 
+Switch(config-if)#
+Switch(config-if)#
+Switch(config-if)#
+Switch(config-if)#exit
+Switch(config)#inter
+Switch(config)#interface fas
+Switch(config)#interface fastEthernet 0/4
+Switch(config-if)#sw
+Switch(config-if)#switchport mode access
+Switch(config-if)#sw
+Switch(config-if)#switchport por
+Switch(config-if)#switchport port-security 
+Switch(config-if)#sw
+Switch(config-if)#switchport por
+Switch(config-if)#switchport port-security ?
+  aging        Port-security aging commands
+  mac-address  Secure mac address
+  maximum      Max secure addresses
+  violation    Security violation mode
+  <cr>
+Switch(config-if)#switchport port-security mac
+Switch(config-if)#switchport port-security mac-address 0000.0CA4.54B7
+Switch(config-if)#sw
+Switch(config-if)#switchport por
+Switch(config-if)#switchport port-security vi
+Switch(config-if)#switchport port-security violation re
+Switch(config-if)#switchport port-security violation restrict 
+Switch(config-if)#do wr
+Building configuration...
+[OK]
+Switch(config-if)#
+Switch(config-if)#exit
+Switch(config)#exit
+Switch#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Switch#
+
+------------------------------------------------------
+-- AL CONECTAR LA PC1 AL PUERTO 2 o mayor DEL HUB ----
+------------------------------------------------------
+
+%LINK-5-CHANGED: Interface FastEthernet0/1, changed state to administratively down
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to down
+
+Switch#
+Switch#sh run
+Building configuration...
+
+Current configuration : 1392 bytes
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname Switch
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+ switchport mode access
+ switchport port-security
+!
+interface FastEthernet0/2
+!
+interface FastEthernet0/3
+ switchport mode access
+ switchport port-security
+ switchport port-security mac-address sticky 
+ switchport port-security violation protect 
+!
+interface FastEthernet0/4
+ switchport mode access
+ switchport port-security
+ switchport port-security violation restrict 
+ switchport port-security mac-address 0000.0CA4.54B7
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+!
+!
+!
+line con 0
+!
+line vty 0 4
+ login
+line vty 5 15
+ login
+!
+!
+!
+!
+end
+
+
+Switch#show por
+Switch#show port-security int
+Switch#show port-security interface fa
+Switch#show port-security interface fastEthernet 0/1
+Port Security              : Enabled
+Port Status                : Secure-shutdown
+Violation Mode             : Shutdown
+Aging Time                 : 0 mins
+Aging Type                 : Absolute
+SecureStatic Address Aging : Disabled
+Maximum MAC Addresses      : 1
+Total MAC Addresses        : 0
+Configured MAC Addresses   : 0
+Sticky MAC Addresses       : 0
+Last Source Address:Vlan   : 0001.4380.A2C0:1
+Security Violation Count   : 1
+
+Switch#
+Switch#
+Switch#
+
+------------------------------------------------------
+-- AL DESCONECTAR LA PC1 DEL HUB                  ----
+------------------------------------------------------
+
+Switch#
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#int
+Switch(config)#interface fa
+Switch(config)#interface fastEthernet 0/1
+Switch(config-if)#shu
+Switch(config-if)#shutdown 
+
+%LINK-5-CHANGED: Interface FastEthernet0/1, changed state to administratively down
+Switch(config-if)#no sh
+Switch(config-if)#no shutdown
+
+Switch(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/1, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+
+Switch(config-if)#
+Switch(config-if)#exit
+
+------------------------------------------------------
+-- AL CAMBIAR LAS MAC ADDRESS DE LAS PC2 y PC3,
+-- Luego en la PC2 entrar al Command Prompt para hacer usar el comando: ping 192.168.0.1
+-- Luego mandar un PDU de la PC3 a la PC2                   
+------------------------------------------------------
+
+Switch#
+Switch#show port
+Switch#show port-security int fa 0/4
+Port Security              : Enabled
+Port Status                : Secure-up
+Violation Mode             : Restrict
+Aging Time                 : 0 mins
+Aging Type                 : Absolute
+SecureStatic Address Aging : Disabled
+Maximum MAC Addresses      : 1
+Total MAC Addresses        : 1
+Configured MAC Addresses   : 1
+Sticky MAC Addresses       : 0
+Last Source Address:Vlan   : 0000.0CA4.54B1:1
+Security Violation Count   : 2
+
+Switch#
