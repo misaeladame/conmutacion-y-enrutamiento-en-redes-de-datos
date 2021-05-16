@@ -1,22 +1,3 @@
-Running Standard Image
-24 FastEthernet/IEEE 802.3 interface(s)
-
-63488K bytes of flash-simulated non-volatile configuration memory.
-Base ethernet MAC Address: 0001.6305.AE22
-Motherboard assembly number: 73-5781-09 
-Power supply part number: 34-0965-01
-Motherboard serial number: FOC061004SZ
-Power supply serial number: DAB0609127D
-Model revision number: C0
-Motherboard revision number: A0
-Model number: WS-C2950-24
-System serial number: FHK0610Z0WC
-
-Cisco Internetwork Operating System Software
-IOS (tm) C2950 Software (C2950-I6Q4L2-M), Version 12.1(22)EA4, RELEASE SOFTWARE(fc1)
-Copyright (c) 1986-2005 by cisco Systems, Inc.
-Compiled Wed 18-May-05 22:31 by jharirba
-
 Press RETURN to get started!
 
 
