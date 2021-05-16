@@ -1,0 +1,549 @@
+C2950 Boot Loader (C2950-HBOOT-M) Version 12.1(11r)EA1, RELEASE SOFTWARE (fc1)
+Compiled Mon 22-Jul-02 18:57 by miwang
+Cisco WS-C2950-24 (RC32300) processor (revision C0) with 21039K bytes of memory.
+2950-24 starting...
+Base ethernet MAC Address: 0002.1731.6866
+Xmodem file system is available.
+Initializing Flash...
+flashfs[0]: 1 files, 0 directories
+flashfs[0]: 0 orphaned files, 0 orphaned directories
+flashfs[0]: Total bytes: 64016384
+flashfs[0]: Bytes used: 3058048
+flashfs[0]: Bytes available: 60958336
+flashfs[0]: flashfs fsck took 1 seconds.
+...done Initializing Flash.
+
+Boot Sector Filesystem (bs:) installed, fsid: 3
+Parameter Block Filesystem (pb:) installed, fsid: 4
+
+
+Loading "flash:/c2950-i6q4l2-mz.121-22.EA4.bin"...
+########################################################################## [OK]
+              Restricted Rights Legend
+
+Use, duplication, or disclosure by the Government is
+subject to restrictions as set forth in subparagraph
+(c) of the Commercial Computer Software - Restricted
+Rights clause at FAR sec. 52.227-19 and subparagraph
+(c) (1) (ii) of the Rights in Technical Data and Computer
+Software clause at DFARS sec. 252.227-7013.
+
+           cisco Systems, Inc.
+           170 West Tasman Drive
+           San Jose, California 95134-1706
+
+
+
+Cisco Internetwork Operating System Software
+IOS (tm) C2950 Software (C2950-I6Q4L2-M), Version 12.1(22)EA4, RELEASE SOFTWARE(fc1)
+Copyright (c) 1986-2005 by cisco Systems, Inc.
+Compiled Wed 18-May-05 22:31 by jharirba
+
+Cisco WS-C2950-24 (RC32300) processor (revision C0) with 21039K bytes of memory.
+Processor board ID FHK0610Z0WC
+Running Standard Image
+24 FastEthernet/IEEE 802.3 interface(s)
+
+63488K bytes of flash-simulated non-volatile configuration memory.
+Base ethernet MAC Address: 0002.1731.6866
+Motherboard assembly number: 73-5781-09 
+Power supply part number: 34-0965-01
+Motherboard serial number: FOC061004SZ
+Power supply serial number: DAB0609127D
+Model revision number: C0
+Motherboard revision number: A0
+Model number: WS-C2950-24
+System serial number: FHK0610Z0WC
+
+Cisco Internetwork Operating System Software
+IOS (tm) C2950 Software (C2950-I6Q4L2-M), Version 12.1(22)EA4, RELEASE SOFTWARE(fc1)
+Copyright (c) 1986-2005 by cisco Systems, Inc.
+Compiled Wed 18-May-05 22:31 by jharirba
+
+Press RETURN to get started!
+
+
+%LINK-5-CHANGED: Interface FastEthernet0/1, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+
+%LINK-5-CHANGED: Interface FastEthernet0/4, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/4, changed state to up
+
+%LINK-5-CHANGED: Interface FastEthernet0/6, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/6, changed state to up
+
+%LINK-5-CHANGED: Interface FastEthernet0/7, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/7, changed state to up
+
+%LINK-5-CHANGED: Interface FastEthernet0/12, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/12, changed state to up
+
+%LINK-5-CHANGED: Interface FastEthernet0/13, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/13, changed state to up
+
+%LINK-5-CHANGED: Interface FastEthernet0/16, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/16, changed state to up
+
+%LINK-5-CHANGED: Interface FastEthernet0/20, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/20, changed state to up
+
+
+Switch>
+Switch>
+Switch>?
+Exec commands:
+  connect     Open a terminal connection
+  disable     Turn off privileged commands
+  disconnect  Disconnect an existing network connection
+  enable      Turn on privileged commands
+  exit        Exit from the EXEC
+  logout      Exit from the EXEC
+  ping        Send echo messages
+  resume      Resume an active network connection
+  show        Show running system information
+  telnet      Open a telnet connection
+  terminal    Set terminal line parameters
+  traceroute  Trace route to destination
+Switch>enable
+Switch#?
+Exec commands:
+  clear       Reset functions
+  clock       Manage the system clock
+  configure   Enter configuration mode
+  connect     Open a terminal connection
+  copy        Copy from one file to another
+  debug       Debugging functions (see also 'undebug')
+  delete      Delete a file
+  dir         List files on a filesystem
+  disable     Turn off privileged commands
+  disconnect  Disconnect an existing network connection
+  enable      Turn on privileged commands
+  erase       Erase a filesystem
+  exit        Exit from the EXEC
+  logout      Exit from the EXEC
+  more        Display the contents of a file
+  no          Disable debugging informations
+  ping        Send echo messages
+  reload      Halt and perform a cold restart
+  resume      Resume an active network connection
+  setup       Run the SETUP command facility
+  show        Show running system information
+  ssh         Open a secure shell client connection
+  telnet      Open a telnet connection
+  terminal    Set terminal line parameters
+  traceroute  Trace route to destination
+  undebug     Disable debugging functions (see also 'debug')
+  vlan        Configure VLAN parameters
+  write       Write running configuration to memory, network, or terminal
+Switch#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#?
+Configure commands:
+  access-list        Add an access list entry
+  banner             Define a login banner
+  boot               Boot Commands
+  cdp                Global CDP configuration subcommands
+  clock              Configure time-of-day clock
+  crypto             Encryption module
+  default            Set a command to its defaults
+  do                 To run exec commands in config mode
+  enable             Modify enable password parameters
+  end                Exit from configure mode
+  exit               Exit from configure mode
+  hostname           Set system's network name
+  interface          Select an interface to configure
+  ip                 Global IP configuration subcommands
+  line               Configure a terminal line
+  lldp               Global LLDP configuration subcommands
+  logging            Modify message logging facilities
+  mac                MAC configuration
+  mac-address-table  Configure the MAC address table
+  monitor            SPAN information and configuration
+  no                 Negate a command or set its defaults
+  ntp                Configure NTP
+  port-channel       EtherChannel configuration
+  privilege          Command privilege parameters
+  service            Modify use of network based services
+  snmp-server        Modify SNMP engine parameters
+  spanning-tree      Spanning Tree Subsystem
+  username           Establish User Name Authentication
+  vlan               Vlan commands
+  vtp                Configure global VTP state
+Switch(config)#exit
+Switch#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Switch#exit
+
+
+
+
+
+
+
+
+
+Switch con0 is now available
+
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+
+
+
+
+
+
+
+
+
+Switch>
+Switch>
+Switch>
+Switch>ena
+Switch>enable 
+Switch#conf t
+Switch#conf terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#
+Switch(config)#
+Switch(config)#
+Switch(config)#hostname VLAN_SIMPLE
+VLAN_SIMPLE(config)#exit
+VLAN_SIMPLE#
+%SYS-5-CONFIG_I: Configured from console by console
+
+VLAN_SIMPLE#
+VLAN_SIMPLE#exit
+
+
+
+
+
+
+
+
+
+VLAN_SIMPLE con0 is now available
+
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+
+
+
+
+
+
+
+
+
+VLAN_SIMPLE>
+VLAN_SIMPLE>
+VLAN_SIMPLE>ena
+VLAN_SIMPLE#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+VLAN_SIMPLE(config)#hostname PINA
+PINA(config)#hostname VLAN_SIMPLE
+VLAN_SIMPLE(config)#VLAN 10
+VLAN_SIMPLE(config-vlan)#name ADMON
+VLAN_SIMPLE(config-vlan)#VLAN 20
+VLAN_SIMPLE(config-vlan)#name MECATRONICA
+VLAN_SIMPLE(config-vlan)#VLAN 30
+VLAN_SIMPLE(config-vlan)#name INDUSTRIAL
+VLAN_SIMPLE(config-vlan)#VLAN 40
+VLAN_SIMPLE(config-vlan)#name GESTION
+VLAN_SIMPLE(config-vlan)#exit
+VLAN_SIMPLE(config)#exit
+VLAN_SIMPLE#
+%SYS-5-CONFIG_I: Configured from console by console
+
+VLAN_SIMPLE#show vlan brief
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa0/1, Fa0/2, Fa0/3, Fa0/4
+                                                Fa0/5, Fa0/6, Fa0/7, Fa0/8
+                                                Fa0/9, Fa0/10, Fa0/11, Fa0/12
+                                                Fa0/13, Fa0/14, Fa0/15, Fa0/16
+                                                Fa0/17, Fa0/18, Fa0/19, Fa0/20
+                                                Fa0/21, Fa0/22, Fa0/23, Fa0/24
+10   ADMON                            active    
+20   MECATRONICA                      active    
+30   INDUSTRIAL                       active    
+40   GESTION                          active    
+1002 fddi-default                     active    
+1003 token-ring-default               active    
+1004 fddinet-default                  active    
+1005 trnet-default                    active    
+VLAN_SIMPLE#
+VLAN_SIMPLE#
+VLAN_SIMPLE#
+VLAN_SIMPLE#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+VLAN_SIMPLE(config)#int
+VLAN_SIMPLE(config)#interface range fa
+VLAN_SIMPLE(config)#interface range fastEthernet 0/1-5
+VLAN_SIMPLE(config-if-range)#sw
+VLAN_SIMPLE(config-if-range)#switchport mod
+VLAN_SIMPLE(config-if-range)#switchport mode   access
+VLAN_SIMPLE(config-if-range)#sw
+VLAN_SIMPLE(config-if-range)#switchport access vlan 10
+VLAN_SIMPLE(config-if-range)#end
+VLAN_SIMPLE#
+%SYS-5-CONFIG_I: Configured from console by console
+
+VLAN_SIMPLE#sh vlan brief
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa0/6, Fa0/7, Fa0/8, Fa0/9
+                                                Fa0/10, Fa0/11, Fa0/12, Fa0/13
+                                                Fa0/14, Fa0/15, Fa0/16, Fa0/17
+                                                Fa0/18, Fa0/19, Fa0/20, Fa0/21
+                                                Fa0/22, Fa0/23, Fa0/24
+10   ADMON                            active    Fa0/1, Fa0/2, Fa0/3, Fa0/4
+                                                Fa0/5
+20   MECATRONICA                      active    
+30   INDUSTRIAL                       active    
+40   GESTION                          active    
+1002 fddi-default                     active    
+1003 token-ring-default               active    
+1004 fddinet-default                  active    
+1005 trnet-default                    active    
+VLAN_SIMPLE#
+VLAN_SIMPLE#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+VLAN_SIMPLE(config)#int
+VLAN_SIMPLE(config)#interface range fa
+VLAN_SIMPLE(config)#interface range fastEthernet 0/6-10
+VLAN_SIMPLE(config-if-range)#sw
+VLAN_SIMPLE(config-if-range)#switchport mode access
+VLAN_SIMPLE(config-if-range)#sw
+VLAN_SIMPLE(config-if-range)#switchport access vlan 20
+VLAN_SIMPLE(config-if-range)#exit
+VLAN_SIMPLE(config)#interface range fastEthernet 0/11-15
+VLAN_SIMPLE(config-if-range)#switchport mode access
+VLAN_SIMPLE(config-if-range)#switchport access vlan 30
+VLAN_SIMPLE(config-if-range)#exit
+VLAN_SIMPLE(config)#interface range fastEthernet 0/16-20
+VLAN_SIMPLE(config-if-range)#switchport mode access
+VLAN_SIMPLE(config-if-range)#switchport access vlan 40
+VLAN_SIMPLE(config-if-range)#exit
+VLAN_SIMPLE(config)#sh vlan brief
+                     ^
+% Invalid input detected at '^' marker.
+	
+VLAN_SIMPLE(config)#do sh vlan brief
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa0/21, Fa0/22, Fa0/23, Fa0/24
+10   ADMON                            active    Fa0/1, Fa0/2, Fa0/3, Fa0/4
+                                                Fa0/5
+20   MECATRONICA                      active    Fa0/6, Fa0/7, Fa0/8, Fa0/9
+                                                Fa0/10
+30   INDUSTRIAL                       active    Fa0/11, Fa0/12, Fa0/13, Fa0/14
+                                                Fa0/15
+40   GESTION                          active    Fa0/16, Fa0/17, Fa0/18, Fa0/19
+                                                Fa0/20
+1002 fddi-default                     active    
+1003 token-ring-default               active    
+1004 fddinet-default                  active    
+1005 trnet-default                    active    
+VLAN_SIMPLE(config)#vlan 50
+VLAN_SIMPLE(config-vlan)#name RICARDITO
+VLAN_SIMPLE(config-vlan)#exit
+VLAN_SIMPLE(config)#interface range fastEthernet 0/21-24
+VLAN_SIMPLE(config-if-range)#switchport mode access
+VLAN_SIMPLE(config-if-range)#no switchport mode access
+Command rejected: An interface must be configured to the Access or Trunk	modes to be configured to NoNegotiate.
+Command rejected: An interface must be configured to the Access or Trunk	modes to be configured to NoNegotiate.
+Command rejected: An interface must be configured to the Access or Trunk	modes to be configured to NoNegotiate.
+Command rejected: An interface must be configured to the Access or Trunk	modes to be configured to NoNegotiate.
+VLAN_SIMPLE(config-if-range)#switchport access vlan 50
+VLAN_SIMPLE(config-if-range)#end
+VLAN_SIMPLE#
+%SYS-5-CONFIG_I: Configured from console by console
+
+VLAN_SIMPLE#
+VLAN_SIMPLE#sh vlan brief
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    
+10   ADMON                            active    Fa0/1, Fa0/2, Fa0/3, Fa0/4
+                                                Fa0/5
+20   MECATRONICA                      active    Fa0/6, Fa0/7, Fa0/8, Fa0/9
+                                                Fa0/10
+30   INDUSTRIAL                       active    Fa0/11, Fa0/12, Fa0/13, Fa0/14
+                                                Fa0/15
+40   GESTION                          active    Fa0/16, Fa0/17, Fa0/18, Fa0/19
+                                                Fa0/20
+50   RICARDITO                        active    Fa0/21, Fa0/22, Fa0/23, Fa0/24
+1002 fddi-default                     active    
+1003 token-ring-default               active    
+1004 fddinet-default                  active    
+1005 trnet-default                    active    
+VLAN_SIMPLE#write
+Building configuration...
+[OK]
+VLAN_SIMPLE#
+VLAN_SIMPLE#show run
+Building configuration...
+
+Current configuration : 2245 bytes
+!
+version 12.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname VLAN_SIMPLE
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+ switchport access vlan 10
+ switchport mode access
+!
+interface FastEthernet0/2
+ switchport access vlan 10
+ switchport mode access
+!
+interface FastEthernet0/3
+ switchport access vlan 10
+ switchport mode access
+!
+interface FastEthernet0/4
+ switchport access vlan 10
+ switchport mode access
+!
+interface FastEthernet0/5
+ switchport access vlan 10
+ switchport mode access
+!
+interface FastEthernet0/6
+ switchport access vlan 20
+ switchport mode access
+!
+interface FastEthernet0/7
+ switchport access vlan 20
+ switchport mode access
+!
+interface FastEthernet0/8
+ switchport access vlan 20
+ switchport mode access
+!
+interface FastEthernet0/9
+ switchport access vlan 20
+ switchport mode access
+!
+interface FastEthernet0/10
+ switchport access vlan 20
+ switchport mode access
+!
+interface FastEthernet0/11
+ switchport access vlan 30
+ switchport mode access
+!
+interface FastEthernet0/12
+ switchport access vlan 30
+ switchport mode access
+!
+interface FastEthernet0/13
+ switchport access vlan 30
+ switchport mode access
+!
+interface FastEthernet0/14
+ switchport access vlan 30
+ switchport mode access
+!
+interface FastEthernet0/15
+ switchport access vlan 30
+ switchport mode access
+!
+interface FastEthernet0/16
+ switchport access vlan 40
+ switchport mode access
+!
+interface FastEthernet0/17
+ switchport access vlan 40
+ switchport mode access
+!
+interface FastEthernet0/18
+ switchport access vlan 40
+ switchport mode access
+!
+interface FastEthernet0/19
+ switchport access vlan 40
+ switchport mode access
+!
+interface FastEthernet0/20
+ switchport access vlan 40
+ switchport mode access
+!
+interface FastEthernet0/21
+ switchport access vlan 50
+ switchport mode access
+!
+interface FastEthernet0/22
+ switchport access vlan 50
+ switchport mode access
+!
+interface FastEthernet0/23
+ switchport access vlan 50
+ switchport mode access
+!
+interface FastEthernet0/24
+ switchport access vlan 50
+ switchport mode access
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+!
+!
+!
+line con 0
+!
+line vty 0 4
+ login
+line vty 5 15
+ login
+!
+!
+!
+!
+end
+
+
+VLAN_SIMPLE#
