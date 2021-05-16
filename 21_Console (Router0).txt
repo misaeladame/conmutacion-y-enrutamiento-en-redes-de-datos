@@ -1,0 +1,376 @@
+         --- System Configuration Dialog ---
+
+Would you like to enter the initial configuration dialog? [yes/no]: n
+
+
+Press RETURN to get started!
+
+
+
+Router>
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#
+Router(config)#banner motd #SOLO PERSONAL DE CUATES#
+Router(config)#banner login #PUROS CUATES SOLAMENTE#
+Router(config)#
+Router(config)#exit
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#exit
+
+
+
+
+
+
+
+
+
+Router con0 is now available
+
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+
+
+
+
+
+
+
+SOLO PERSONAL DE CUATES
+
+Router>
+Router>
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#
+Router(config)#exit
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#
+Router#
+Router#sh run
+Building configuration...
+
+Current configuration : 629 bytes
+!
+version 12.4
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname Router
+!
+!
+!
+!
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface FastEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+banner login ^CPUROS CUATES SOLAMENTE^C
+banner motd ^CSOLO PERSONAL DE CUATES^C
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+
+
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#enable password RAS
+Router(config)#line console 0
+Router(config-line)#login
+% Login disabled on line 0, until 'password' is set
+Router(config-line)#exit
+Router(config)#
+Router(config)#
+Router(config)#line vty 0 3
+Router(config-line)#password RAS
+Router(config-line)#login
+Router(config-line)#exit
+Router(config)#
+Router(config)#
+Router(config)#end
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#
+Router#
+Router#sh run
+Building configuration...
+
+Current configuration : 690 bytes
+!
+version 12.4
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname Router
+!
+!
+!
+enable password RAS
+!
+!
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface FastEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+banner login ^CPUROS CUATES SOLAMENTE^C
+banner motd ^CSOLO PERSONAL DE CUATES^C
+!
+!
+!
+!
+!
+line con 0
+ login
+!
+line aux 0
+!
+line vty 0 3
+ password RAS
+ login
+line vty 4
+ login
+!
+!
+!
+end
+
+
+Router#
+Router#
+Router#
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#service password-
+Router(config)#service password-encryption 
+Router(config)#exit
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#sh run
+Building configuration...
+
+Current configuration : 701 bytes
+!
+version 12.4
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname Router
+!
+!
+!
+enable password 7 08136D7D
+!
+!
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface FastEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+banner login ^CPUROS CUATES SOLAMENTE^C
+banner motd ^CSOLO PERSONAL DE CUATES^C
+!
+!
+!
+!
+!
+line con 0
+ login
+!
+line aux 0
+!
+line vty 0 3
+ password 7 08136D7D
+ login
+line vty 4
+ login
+!
+!
+!
+end
+
+
+Router#
+
+--------------------------------------------
+-- Al usar el Terminal en la Laptop0
+--------------------------------------------
+
+Router#
+Router#
+Router#
+Router#clock set ?
+  hh:mm:ss  Current Time
+Router#clock set 12:36:00
+% Incomplete command.
+Router#clock set 12:36:00 ?
+  <1-31>  Day of the month
+  MONTH   Month of the year
+Router#clock set 12:36:00 May 16 2021
+Router#
+Router#
+Router#sh clock
+12:36:8.354 UTC Sun May 16 2021
+Router#
