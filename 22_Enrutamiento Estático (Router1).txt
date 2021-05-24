@@ -111,3 +111,43 @@ advertisement version: 2
 Duplex: full
 
 R1#
+
+-------------------------------------
+-- Despues de colocar el Router2
+-------------------------------------
+
+R1>
+R1>
+R1>ena
+R1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#int se 0/1/1
+R1(config-if)#ip add 2.2.2.2 255.255.255.252
+R1(config-if)#no sh
+
+R1(config-if)#
+%LINK-5-CHANGED: Interface Serial0/1/1, changed state to up
+
+R1(config-if)#
+R1(config-if)#
+R1(config-if)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/1/1, changed state to up
+
+R1(config-if)#
+R1(config-if)#clock ?
+  rate  Configure serial interface clock speed
+R1(config-if)#clock rate 64000
+R1(config-if)#
+R1(config-if)#
+R1(config-if)#ip route 192.168.30.0 255.255.255.0 2.2.2.1
+R1(config)#exit
+R1#
+%SYS-5-CONFIG_I: Configured from console by console
+
+R1#
+R1#wr
+Building configuration...
+[OK]
+R1#
+R1#
+R1#
