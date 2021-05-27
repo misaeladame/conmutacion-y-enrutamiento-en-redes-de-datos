@@ -44,4 +44,47 @@ R2#wr
 Building configuration...
 [OK]
 R2#
+R2#sh ip route
+Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     2.0.0.0/30 is subnetted, 1 subnets
+C       2.2.2.0 is directly connected, Serial0/1/0
+S    192.168.20.0/24 [1/0] via 2.2.2.2
+C    192.168.30.0/24 is directly connected, FastEthernet0/0
+
 R2#
+R2#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R2(config)#
+R2(config)#
+R2(config)#ip route 192.168.10.0 255.255.255.0 2.2.2.2
+R2(config)#do wr
+Building configuration...
+[OK]
+R2(config)#
+R2(config)#do sh ip route
+Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     2.0.0.0/30 is subnetted, 1 subnets
+C       2.2.2.0 is directly connected, Serial0/1/0
+S    192.168.10.0/24 [1/0] via 2.2.2.2
+S    192.168.20.0/24 [1/0] via 2.2.2.2
+C    192.168.30.0/24 is directly connected, FastEthernet0/0
+
+R2(config)#

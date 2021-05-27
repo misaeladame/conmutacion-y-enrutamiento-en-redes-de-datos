@@ -1,0 +1,82 @@
+         --- System Configuration Dialog ---
+
+Would you like to enter the initial configuration dialog? [yes/no]: n
+
+
+Press RETURN to get started!
+
+
+
+Router>
+Router>en
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#
+Router(config)#hostname LC
+LC(config)#int fa 0/0
+LC(config-if)#ip add 192.168.10.1 255.255.255.0
+LC(config-if)#no sh
+
+LC(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+LC(config-if)#
+LC(config-if)#exit
+LC(config)#
+LC(config)#int se 0/1/0
+LC(config-if)#ip add 1.1.1.1 255.255.255.252
+LC(config-if)#no sh
+
+%LINK-5-CHANGED: Interface Serial0/1/0, changed state to down
+LC(config-if)#
+LC(config-if)#exit
+LC(config)#
+LC(config)#route rip
+LC(config-router)#ver 2
+LC(config-router)#network 192.168.10.0
+LC(config-router)#network 1.1.1.0
+LC(config-router)#exit
+LC(config)#do wr
+Building configuration...
+[OK]
+LC(config)#
+LC(config)#
+
+
+
+----------------------------------
+- Despues de colocar el Router2
+-----------------------------------
+LC>
+LC>
+LC>ena
+LC#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+LC(config)#
+LC(config)#int se 0/1/1
+LC(config-if)#ip add 2.2.2.2 255.255.255.252
+LC(config-if)#no sh
+
+LC(config-if)#
+%LINK-5-CHANGED: Interface Serial0/1/1, changed state to up
+
+LC(config-if)#
+LC(config-if)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/1/1, changed state to up
+
+LC(config-if)#
+LC(config-if)#exit
+LC(config)#
+LC(config)#router rip
+LC(config-router)#ver 2
+LC(config-router)#network 2.2.2.0
+LC(config-router)#exit
+LC(config)#
+LC(config)#do wr
+Building configuration...
+[OK]
+LC(config)#
+LC(config)#
