@@ -1,0 +1,233 @@
+         --- System Configuration Dialog ---
+
+Would you like to enter the initial configuration dialog? [yes/no]: n
+
+
+Press RETURN to get started!
+
+
+
+Router>
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#
+Router(config)#hostname ISP
+ISP(config)#int fa 0/0
+ISP(config-if)#ip add 1.1.1.1 255.255.255.0
+ISP(config-if)#no sh
+
+ISP(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+ISP(config-if)#
+ISP(config-if)#
+ISP(config-if)#no cdp enable
+ISP(config-if)#exit
+ISP(config)#
+ISP(config)#
+ISP(config)#int vlan 10
+ISP(config-if)#ip add 10.10.10.1 255.255.255.0
+ISP(config-if)#int range fa 1/0-15
+ISP(config-if-range)#sw
+ISP(config-if-range)#switchport acc
+ISP(config-if-range)#switchport access vlan 10
+% Access VLAN does not exist. Creating vlan 10
+ISP(config-if-range)#
+%LINK-5-CHANGED: Interface Vlan10, changed state to up
+
+ISP(config-if-range)#no sh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ISP(config-if-range)#
+%LINK-5-CHANGED: Interface FastEthernet1/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet1/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan10, changed state to up
+
+%LINK-5-CHANGED: Interface FastEthernet1/1, changed state to up
+
+%LINK-5-CHANGED: Interface FastEthernet1/2, changed state to up
+
+%LINK-5-CHANGED: Interface FastEthernet1/3, changed state to up
+
+%LINK-5-CHANGED: Interface FastEthernet1/4, changed state to up
+
+%LINK-5-CHANGED: Interface FastEthernet1/5, changed state to up
+
+%LINK-5-CHANGED: Interface FastEthernet1/6, changed state to up
+
+%LINK-5-CHANGED: Interface FastEthernet1/7, changed state to up
+
+%LINK-5-CHANGED: Interface FastEthernet1/8, changed state to up
+
+%LINK-5-CHANGED: Interface FastEthernet1/9, changed state to up
+
+%LINK-5-CHANGED: Interface FastEthernet1/10, changed state to up
+
+%LINK-5-CHANGED: Interface FastEthernet1/11, changed state to up
+
+%LINK-5-CHANGED: Interface FastEthernet1/12, changed state to up
+
+%LINK-5-CHANGED: Interface FastEthernet1/13, changed state to up
+
+%LINK-5-CHANGED: Interface FastEthernet1/14, changed state to up
+
+%LINK-5-CHANGED: Interface FastEthernet1/15, changed state to up
+
+ISP(config-if-range)#
+ISP(config-if-range)#
+ISP(config)#int range fa 1/0-15
+ISP(config-if-range)#spa
+ISP(config-if-range)#spanning-tree portfast
+%Warning: portfast should only be enabled on ports connected to a single
+host. Connecting hubs, concentrators, switches, bridges, etc... to this
+interface  when portfast is enabled, can cause temporary bridging loops.
+Use with CAUTION
+
+%Portfast has been configured on FastEthernet1/0 but will only
+have effect when the interface is in a non-trunking mode.
+%Warning: portfast should only be enabled on ports connected to a single
+host. Connecting hubs, concentrators, switches, bridges, etc... to this
+interface  when portfast is enabled, can cause temporary bridging loops.
+Use with CAUTION
+
+%Portfast has been configured on FastEthernet1/1 but will only
+have effect when the interface is in a non-trunking mode.
+%Warning: portfast should only be enabled on ports connected to a single
+host. Connecting hubs, concentrators, switches, bridges, etc... to this
+interface  when portfast is enabled, can cause temporary bridging loops.
+Use with CAUTION
+
+%Portfast has been configured on FastEthernet1/2 but will only
+have effect when the interface is in a non-trunking mode.
+%Warning: portfast should only be enabled on ports connected to a single
+host. Connecting hubs, concentrators, switches, bridges, etc... to this
+interface  when portfast is enabled, can cause temporary bridging loops.
+Use with CAUTION
+
+%Portfast has been configured on FastEthernet1/3 but will only
+have effect when the interface is in a non-trunking mode.
+%Warning: portfast should only be enabled on ports connected to a single
+host. Connecting hubs, concentrators, switches, bridges, etc... to this
+interface  when portfast is enabled, can cause temporary bridging loops.
+Use with CAUTION
+
+%Portfast has been configured on FastEthernet1/4 but will only
+have effect when the interface is in a non-trunking mode.
+%Warning: portfast should only be enabled on ports connected to a single
+host. Connecting hubs, concentrators, switches, bridges, etc... to this
+interface  when portfast is enabled, can cause temporary bridging loops.
+Use with CAUTION
+
+%Portfast has been configured on FastEthernet1/5 but will only
+have effect when the interface is in a non-trunking mode.
+%Warning: portfast should only be enabled on ports connected to a single
+host. Connecting hubs, concentrators, switches, bridges, etc... to this
+interface  when portfast is enabled, can cause temporary bridging loops.
+Use with CAUTION
+
+%Portfast has been configured on FastEthernet1/6 but will only
+have effect when the interface is in a non-trunking mode.
+%Warning: portfast should only be enabled on ports connected to a single
+host. Connecting hubs, concentrators, switches, bridges, etc... to this
+interface  when portfast is enabled, can cause temporary bridging loops.
+Use with CAUTION
+
+%Portfast has been configured on FastEthernet1/7 but will only
+have effect when the interface is in a non-trunking mode.
+%Warning: portfast should only be enabled on ports connected to a single
+host. Connecting hubs, concentrators, switches, bridges, etc... to this
+interface  when portfast is enabled, can cause temporary bridging loops.
+Use with CAUTION
+
+%Portfast has been configured on FastEthernet1/8 but will only
+have effect when the interface is in a non-trunking mode.
+%Warning: portfast should only be enabled on ports connected to a single
+host. Connecting hubs, concentrators, switches, bridges, etc... to this
+interface  when portfast is enabled, can cause temporary bridging loops.
+Use with CAUTION
+
+%Portfast has been configured on FastEthernet1/9 but will only
+have effect when the interface is in a non-trunking mode.
+%Warning: portfast should only be enabled on ports connected to a single
+host. Connecting hubs, concentrators, switches, bridges, etc... to this
+interface  when portfast is enabled, can cause temporary bridging loops.
+Use with CAUTION
+
+%Portfast has been configured on FastEthernet1/10 but will only
+have effect when the interface is in a non-trunking mode.
+%Warning: portfast should only be enabled on ports connected to a single
+host. Connecting hubs, concentrators, switches, bridges, etc... to this
+interface  when portfast is enabled, can cause temporary bridging loops.
+Use with CAUTION
+
+%Portfast has been configured on FastEthernet1/11 but will only
+have effect when the interface is in a non-trunking mode.
+%Warning: portfast should only be enabled on ports connected to a single
+host. Connecting hubs, concentrators, switches, bridges, etc... to this
+interface  when portfast is enabled, can cause temporary bridging loops.
+Use with CAUTION
+
+%Portfast has been configured on FastEthernet1/12 but will only
+have effect when the interface is in a non-trunking mode.
+%Warning: portfast should only be enabled on ports connected to a single
+host. Connecting hubs, concentrators, switches, bridges, etc... to this
+interface  when portfast is enabled, can cause temporary bridging loops.
+Use with CAUTION
+
+%Portfast has been configured on FastEthernet1/13 but will only
+have effect when the interface is in a non-trunking mode.
+%Warning: portfast should only be enabled on ports connected to a single
+host. Connecting hubs, concentrators, switches, bridges, etc... to this
+interface  when portfast is enabled, can cause temporary bridging loops.
+Use with CAUTION
+
+%Portfast has been configured on FastEthernet1/14 but will only
+have effect when the interface is in a non-trunking mode.
+%Warning: portfast should only be enabled on ports connected to a single
+host. Connecting hubs, concentrators, switches, bridges, etc... to this
+interface  when portfast is enabled, can cause temporary bridging loops.
+Use with CAUTION
+
+%Portfast has been configured on FastEthernet1/15 but will only
+have effect when the interface is in a non-trunking mode.
+ISP(config-if-range)#exit
+ISP(config)#do wr
+Building configuration...
+[OK]
+ISP(config)#
+ISP(config)#ip dhcp pool INTERNET_USERS
+ISP(dhcp-config)#net
+ISP(dhcp-config)#network 1.1.1.0 255.255.255.0
+ISP(dhcp-config)#def
+ISP(dhcp-config)#default-router 1.1.1.1
+ISP(dhcp-config)#dns-s
+ISP(dhcp-config)#dns-server 10.10.10.2
+ISP(dhcp-config)#exit
+ISP(config)#
+ISP(config)#ip dhcp ex
+ISP(config)#ip dhcp excluded-address 1.1.1.1
+ISP(config)#do wr
+Building configuration...
+[OK]
+ISP(config)#
+ISP(config)#

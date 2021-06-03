@@ -1,0 +1,41 @@
+         --- System Configuration Dialog ---
+
+Would you like to enter the initial configuration dialog? [yes/no]: 
+%LINK-5-CHANGED: Interface FastEthernet0/0/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0/0, changed state to up
+
+%LINK-5-CHANGED: Interface FastEthernet0/0/1, changed state to up
+
+%LINK-5-CHANGED: Interface FastEthernet0/0/2, changed state to up
+
+%LINK-5-CHANGED: Interface FastEthernet0/0/3, changed state to up
+
+% Please answer 'yes' or 'no'.
+Would you like to enter the initial configuration dialog? [yes/no]: n
+
+
+Press RETURN to get started!
+
+
+
+Router>
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#int fa 0/0
+Router(config-if)#ip add 1.1.1.2 255.255.255.0
+Router(config-if)#ip add dhcp
+Router(config-if)#no sh
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+Router(config-if)#
+Router(config-if)#exit
+Router(config)#
+Router(config)#hostname ROUTER_CASA
+ROUTER_CASA(config)#
