@@ -39,3 +39,118 @@ Router(config-if)#exit
 Router(config)#
 Router(config)#hostname ROUTER_CASA
 ROUTER_CASA(config)#
+ROUTER_CASA(config)#int vlan 20
+ROUTER_CASA(config-if)#ip add 192.168.0.1 255.255.255.0
+ROUTER_CASA(config-if)#int range fa 0/0/0-3
+ROUTER_CASA(config-if-range)#sw
+ROUTER_CASA(config-if-range)#switchport acc
+ROUTER_CASA(config-if-range)#switchport access vlan 20
+% Access VLAN does not exist. Creating vlan 20
+ROUTER_CASA(config-if-range)#
+%LINK-5-CHANGED: Interface Vlan20, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan20, changed state to up
+
+ROUTER_CASA(config-if-range)#
+ROUTER_CASA(config-if-range)#spa
+ROUTER_CASA(config-if-range)#spanning-tree portfast
+%Warning: portfast should only be enabled on ports connected to a single
+host. Connecting hubs, concentrators, switches, bridges, etc... to this
+interface  when portfast is enabled, can cause temporary bridging loops.
+Use with CAUTION
+
+%Portfast has been configured on FastEthernet0/0/0 but will only
+have effect when the interface is in a non-trunking mode.
+%Warning: portfast should only be enabled on ports connected to a single
+host. Connecting hubs, concentrators, switches, bridges, etc... to this
+interface  when portfast is enabled, can cause temporary bridging loops.
+Use with CAUTION
+
+%Portfast has been configured on FastEthernet0/0/1 but will only
+have effect when the interface is in a non-trunking mode.
+%Warning: portfast should only be enabled on ports connected to a single
+host. Connecting hubs, concentrators, switches, bridges, etc... to this
+interface  when portfast is enabled, can cause temporary bridging loops.
+Use with CAUTION
+
+%Portfast has been configured on FastEthernet0/0/2 but will only
+have effect when the interface is in a non-trunking mode.
+%Warning: portfast should only be enabled on ports connected to a single
+host. Connecting hubs, concentrators, switches, bridges, etc... to this
+interface  when portfast is enabled, can cause temporary bridging loops.
+Use with CAUTION
+
+%Portfast has been configured on FastEthernet0/0/3 but will only
+have effect when the interface is in a non-trunking mode.
+ROUTER_CASA(config-if-range)#
+ROUTER_CASA(config-if-range)#no sh
+ROUTER_CASA(config-if-range)#exit
+ROUTER_CASA(config)#ip dhcp pool USERS
+ROUTER_CASA(dhcp-config)#net
+ROUTER_CASA(dhcp-config)#network 192.168.0.0 255.255.255.0
+ROUTER_CASA(dhcp-config)#default-router 192.168.0.1
+ROUTER_CASA(dhcp-config)#dns-server 10.10.10.2
+ROUTER_CASA(dhcp-config)#exit
+ROUTER_CASA(config)#ip dhcp ex
+ROUTER_CASA(config)#ip dhcp excluded-address %DHCPD-4-PING_CONFLICT: DHCP address conflict:  se
+ROUTER_CASA(config)#ip dhcp ex
+ROUTER_CASA(config)#ip dhcp excluded-address 192.168.0.1
+ROUTER_CASA(config)#acc
+ROUTER_CASA(config)#access-list ?
+  <1-99>     IP standard access list
+  <100-199>  IP extended access list
+ROUTER_CASA(config)#access-list 1
+% Incomplete command.
+ROUTER_CASA(config)#access-list 1 ?
+  deny    Specify packets to reject
+  permit  Specify packets to forward
+  remark  Access list entry comment
+ROUTER_CASA(config)#access-list 1 permit ?
+  A.B.C.D  Address to match
+  any      Any source host
+  host     A single host address
+ROUTER_CASA(config)#access-list 1 permit 192.168.0.0 ?
+  A.B.C.D  Wildcard bits
+  <cr>
+ROUTER_CASA(config)#access-list 1 permit 192.168.0.0 0.0.0.255
+ROUTER_CASA(config)#
+ROUTER_CASA(config)#
+ROUTER_CASA(config)#ip nat ?
+  inside   Inside address translation
+  outside  Outside address translation
+  pool     Define pool of addresses
+ROUTER_CASA(config)#ip nat in
+ROUTER_CASA(config)#ip nat inside ?
+  source  Source address translation
+ROUTER_CASA(config)#ip nat inside source ?
+  list    Specify access list describing local addresses
+  static  Specify static local->global mapping
+ROUTER_CASA(config)#ip nat inside source list ?
+  <1-199>  Access list number for local addresses
+  WORD     Access list name for local addresses
+ROUTER_CASA(config)#ip nat inside source list 1 ?
+  interface  Specify interface for global address
+  pool       Name pool of global addresses
+ROUTER_CASA(config)#ip nat inside source list 1 inte
+ROUTER_CASA(config)#ip nat inside source list 1 interface ?
+  Ethernet         IEEE 802.3
+  FastEthernet     FastEthernet IEEE 802.3
+  GigabitEthernet  GigabitEthernet IEEE 802.3z
+  Serial           Serial
+ROUTER_CASA(config)#ip nat inside source list 1 interface fa 0/0
+ROUTER_CASA(config)#int vlan 20
+ROUTER_CASA(config-if)#ip nat in
+ROUTER_CASA(config-if)#ip nat inside 
+ROUTER_CASA(config-if)#ip nat ou
+ROUTER_CASA(config-if)#ip nat outside 
+ROUTER_CASA(config-if)#exit
+ROUTER_CASA(config)#exit
+ROUTER_CASA#
+%SYS-5-CONFIG_I: Configured from console by console
+
+ROUTER_CASA#
+ROUTER_CASA#wr
+Building configuration...
+[OK]
+ROUTER_CASA#
+ROUTER_CASA#
