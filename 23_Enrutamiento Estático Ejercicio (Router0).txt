@@ -1,0 +1,140 @@
+Router>
+Router>
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#hostname R0
+R0(config)#
+R0(config)#int fa 0/0
+R0(config-if)#ip add 192.168.0.1 255.255.255.0
+R0(config-if)#no sh
+
+R0(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+R0(config-if)#
+R0(config-if)#int se 0/0/0
+R0(config-if)#ip add 5.5.5.2 255.255.255.248
+R0(config-if)#no sh
+
+R0(config-if)#
+%LINK-5-CHANGED: Interface Serial0/0/0, changed state to up
+
+R0(config-if)#
+R0(config-if)#clockrate 64000
+                   ^
+% Invalid input detected at '^' marker.
+	
+R0(config-if)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/0/0, changed state to up
+
+R0(config-if)#
+R0(config-if)#clock rate 64000
+R0(config-if)#exit
+R0(config)#
+R0(config)#int se 0/0/1
+R0(config-if)#ip add 8.8.8.3 255.255.255.248
+R0(config-if)#no sh
+
+R0(config-if)#
+%LINK-5-CHANGED: Interface Serial0/0/1, changed state to up
+
+R0(config-if)#
+R0(config-if)#clock rate 640
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/0/1, changed state to up
+                         ^
+% Invalid input detected at '^' marker.
+	
+R0(config-if)#clock rate 64000
+R0(config-if)#exit
+R0(config)#
+R0(config)#int se 0/1/1
+R0(config-if)#ip add 7.7.7.4 255.255.255.248 
+R0(config-if)#no sh
+
+%LINK-5-CHANGED: Interface Serial0/1/1, changed state to down
+R0(config-if)#
+R0(config-if)#clock rate 64000
+R0(config-if)#exit
+R0(config)#
+R0(config)#int se 0/1/0
+R0(config-if)#ip add 6.6.6.5 255.255.255.248
+R0(config-if)#no sh
+
+%LINK-5-CHANGED: Interface Serial0/1/0, changed state to down
+R0(config-if)#
+R0(config-if)#clock rate 64000
+R0(config-if)#exit
+R0(config)#
+R0(config)#do wr
+Building configuration...
+[OK]
+R0(config)#
+R0(config)#
+R0(config)#
+R0(config)#
+R0(config)#ip route 192.168.1.0 255.255.255.0 5.5.5.3
+R0(config)#ip route 192.168.1.0 255.255.255.0 6.6.6.3
+R0(config)#ip route 192.168.1.0 255.255.255.0 7.7.7.2
+R0(config)#ip route 192.168.1.0 255.255.255.0 8.8.8.4
+R0(config)#
+R0(config)#ip route 192.168.2.0 255.255.255.0 5.5.5.3
+R0(config)#ip route 192.168.2.0 255.255.255.0 6.6.6.3
+R0(config)#ip route 192.168.2.0 255.255.255.0 7.7.7.2
+R0(config)#ip route 192.168.2.0 255.255.255.0 8.8.8.4
+R0(config)#
+R0(config)#ip route 192.168.3.0 255.255.255.0 5.5.5.3
+R0(config)#ip route 192.168.3.0 255.255.255.0 6.6.6.3
+R0(config)#ip route 192.168.3.0 255.255.255.0 7.7.7.2
+R0(config)#ip route 192.168.3.0 255.255.255.0 8.8.8.4
+R0(config)#
+R0(config)#ip route 192.168.4.0 255.255.255.0 5.5.5.3
+R0(config)#ip route 192.168.4.0 255.255.255.0 6.6.6.3
+R0(config)#ip route 192.168.4.0 255.255.255.0 7.7.7.2
+R0(config)#ip route 192.168.4.0 255.255.255.0 8.8.8.4
+R0(config)#
+R0(config)#do sh ip route
+Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     5.0.0.0/29 is subnetted, 1 subnets
+C       5.5.5.0 is directly connected, Serial0/0/0
+     6.0.0.0/29 is subnetted, 1 subnets
+C       6.6.6.0 is directly connected, Serial0/1/0
+     7.0.0.0/29 is subnetted, 1 subnets
+C       7.7.7.0 is directly connected, Serial0/1/1
+     8.0.0.0/29 is subnetted, 1 subnets
+C       8.8.8.0 is directly connected, Serial0/0/1
+C    192.168.0.0/24 is directly connected, FastEthernet0/0
+S    192.168.1.0/24 [1/0] via 5.5.5.3
+                    [1/0] via 6.6.6.3
+                    [1/0] via 7.7.7.2
+                    [1/0] via 8.8.8.4
+S    192.168.2.0/24 [1/0] via 5.5.5.3
+                    [1/0] via 6.6.6.3
+                    [1/0] via 7.7.7.2
+                    [1/0] via 8.8.8.4
+S    192.168.3.0/24 [1/0] via 5.5.5.3
+                    [1/0] via 6.6.6.3
+                    [1/0] via 7.7.7.2
+                    [1/0] via 8.8.8.4
+S    192.168.4.0/24 [1/0] via 5.5.5.3
+                    [1/0] via 6.6.6.3
+                    [1/0] via 7.7.7.2
+                    [1/0] via 8.8.8.4
+
+R0(config)#
+R0(config)#do wr
+Building configuration...
+[OK]
+R0(config)#
+R0(config)#

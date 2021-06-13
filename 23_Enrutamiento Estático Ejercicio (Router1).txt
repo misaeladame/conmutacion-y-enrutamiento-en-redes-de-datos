@@ -28,10 +28,121 @@ R1(config-if)#
 R1(config-if)#
 R1(config-if)#exit
 R1(config)#
-R1(config)#int se 0/0/0
-R1(config-if)#ip add 1.1.1.2 255.255.255.252
+R1(config)#int se 0/0/1
+R1(config-if)#ip add 1.1.1.2 255.255.255.192
+R1(config-if)#ip add 1.1.1.2 255.255.255.248
 R1(config-if)#no sh
 
-%LINK-5-CHANGED: Interface Serial0/0/0, changed state to down
+%LINK-5-CHANGED: Interface Serial0/0/1, changed state to down
 R1(config-if)#
 R1(config-if)#
+R1(config-if)#clock rate 64000
+R1(config-if)#exit
+R1(config)#
+R1(config)#int se 0/0/0
+R1(config-if)#ip add 5.5.5.3 255.255.255.248
+R1(config-if)#no sh
+R1(config-if)#
+R1(config-if)#exit
+R1(config)#
+R1(config)#int se 0/1/0
+R1(config-if)#ip add 3.3.3.4 255.255.255.248
+R1(config-if)#no sh
+
+%LINK-5-CHANGED: Interface Serial0/1/0, changed state to down
+R1(config-if)#
+R1(config-if)#clock rate 64000
+R1(config-if)#exit
+R1(config)#
+R1(config)#
+R1(config)#do wr
+Building configuration...
+[OK]
+R1(config)#
+R1(config)#
+R1(config)#
+R1(config)#ip route 192.168.0.0 255.255.255.0 1.1.1.4
+R1(config)#ip route 192.168.0.0 255.255.255.0 5.5.5.2
+R1(config)#ip route 192.168.0.0 255.255.255.0 3.3.3.3
+R1(config)#
+R1(config)#ip route 192.168.2.0 255.255.255.0 1.1.1.4
+R1(config)#ip route 192.168.2.0 255.255.255.0 5.5.5.2
+R1(config)#ip route 192.168.2.0 255.255.255.0 3.3.3.3
+R1(config)#
+R1(config)#ip route 192.168.3.0 255.255.255.0 1.1.1.4
+R1(config)#ip route 192.168.3.0 255.255.255.0 5.5.5.2
+R1(config)#ip route 192.168.3.0 255.255.255.0 3.3.3.3
+R1(config)#
+R1(config)#do wr
+Building configuration...
+[OK]
+R1(config)#
+R1(config)#do sh ip route
+Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     1.0.0.0/29 is subnetted, 1 subnets
+C       1.1.1.0 is directly connected, Serial0/0/1
+     3.0.0.0/29 is subnetted, 1 subnets
+C       3.3.3.0 is directly connected, Serial0/1/0
+     5.0.0.0/29 is subnetted, 1 subnets
+C       5.5.5.0 is directly connected, Serial0/0/0
+S    192.168.0.0/24 [1/0] via 1.1.1.4
+                    [1/0] via 5.5.5.2
+                    [1/0] via 3.3.3.3
+C    192.168.1.0/24 is directly connected, FastEthernet0/0
+S    192.168.2.0/24 [1/0] via 1.1.1.4
+                    [1/0] via 5.5.5.2
+                    [1/0] via 3.3.3.3
+S    192.168.3.0/24 [1/0] via 1.1.1.4
+                    [1/0] via 5.5.5.2
+                    [1/0] via 3.3.3.3
+
+R1(config)#ip route 192.168.4.0 255.255.255.0 1.1.1.4
+R1(config)#ip route 192.168.4.0 255.255.255.0 5.5.5.2
+R1(config)#ip route 192.168.4.0 255.255.255.0 3.3.3.3
+R1(config)#
+R1(config)#do sh ip route
+Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     1.0.0.0/29 is subnetted, 1 subnets
+C       1.1.1.0 is directly connected, Serial0/0/1
+     3.0.0.0/29 is subnetted, 1 subnets
+C       3.3.3.0 is directly connected, Serial0/1/0
+     5.0.0.0/29 is subnetted, 1 subnets
+C       5.5.5.0 is directly connected, Serial0/0/0
+S    192.168.0.0/24 [1/0] via 1.1.1.4
+                    [1/0] via 5.5.5.2
+                    [1/0] via 3.3.3.3
+C    192.168.1.0/24 is directly connected, FastEthernet0/0
+S    192.168.2.0/24 [1/0] via 1.1.1.4
+                    [1/0] via 5.5.5.2
+                    [1/0] via 3.3.3.3
+S    192.168.3.0/24 [1/0] via 1.1.1.4
+                    [1/0] via 5.5.5.2
+                    [1/0] via 3.3.3.3
+S    192.168.4.0/24 [1/0] via 1.1.1.4
+                    [1/0] via 5.5.5.2
+                    [1/0] via 3.3.3.3
+
+R1(config)#
+R1(config)#do wr
+Building configuration...
+[OK]
+R1(config)#
+R1(config)#
